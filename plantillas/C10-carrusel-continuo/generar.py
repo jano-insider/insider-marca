@@ -13,9 +13,10 @@ Ficha:
   "laminas": [
     {"tipo": "portada",   "fondo": "blanco", "titulo": "¿Gastas **más** de lo que quisieras?"},
     {"tipo": "contenido", "fondo": "coral",  "antes": "...", "titulo": "...", "despues": "...", "alineacion": "izquierda"},
-    {"tipo": "cierre",    "fondo": "blanco", "titulo": "¿Querés **saber más?**", "llamado": "Escribínos", "texto": "Somos tu asesor financiero."}
+    {"tipo": "cierre",    "fondo": "blanco", "titulo": "¿Querés **saber más?**", "llamado": "Escribinos", "texto": "Somos tu asesor financiero."}
   ]
 }
+En el cierre, si hay "llamado", el "titulo" es opcional (ej. solo el recuadro "Escribinos" con su texto).
 En los títulos, **así** va en coral sobre blanco (en violeta sobre coral).
 Uniones (a criterio de marketing): por defecto se alternan como en los originales; en cada lámina coral
 se pueden fijar con "union_izq" / "union_der": "banda-abajo", "banda-arriba", "borde-arriba", "borde-abajo" o "recta".
@@ -68,7 +69,9 @@ def validar(d):
             e.append(f"{c}.tipo: 'portada', 'contenido' o 'cierre'.")
         if l.get("fondo") not in {"blanco", "coral"}:
             e.append(f"{c}.fondo: 'blanco' o 'coral'.")
-        for campo, mx, oblig in (("titulo", 90, True), ("antes", 140, False), ("despues", 140, False),
+        # en el cierre, si hay llamado ("Escribinos" en su recuadro), el título es opcional
+        tit_oblig = not (l.get("tipo") == "cierre" and l.get("llamado"))
+        for campo, mx, oblig in (("titulo", 90, tit_oblig), ("antes", 140, False), ("despues", 140, False),
                                  ("llamado", 20, False), ("texto", 90, False)):
             v = l.get(campo)
             if v in (None, ""):
@@ -185,9 +188,10 @@ def lamina(k, l, d, kit, uniones):
             bloques.append(f'<div style="font-size:36px;line-height:1.2;color:{cuerpo_col};margin-bottom:30px">{t(l["antes"])}</div>')
         ancho_tit = "max-width:690px;" if l["tipo"] == "contenido" else ""
         margen_auto = {"left": "", "center": "margin-left:auto;margin-right:auto;", "right": "margin-left:auto;"}[al]
-        bloques.append(f'<div class="tit encoge" style="{ancho_tit}{margen_auto}font-size:95px;line-height:1.02;color:{base}">{t(l["titulo"])}</div>')
+        if l.get("titulo"):
+            bloques.append(f'<div class="tit encoge" style="{ancho_tit}{margen_auto}font-size:95px;line-height:1.02;color:{base}">{t(l["titulo"])}</div>')
         if l["tipo"] == "cierre" and l.get("llamado"):
-            bloques.append(f'<div class="llam" style="align-self:{ {"left":"flex-start","center":"center","right":"flex-end"}[al] }">'
+            bloques.append(f'<div class="llam" style="margin-top:{28 if l.get("titulo") else 0}px;align-self:{ {"left":"flex-start","center":"center","right":"flex-end"}[al] }">'
                            f'<span class="tit">{t(l["llamado"])}</span></div>')
         if l.get("texto"):
             bloques.append(f'<div style="font-size:51px;line-height:1.2;color:{cuerpo_col};margin-top:24px">{t(l["texto"])}</div>')
