@@ -14,6 +14,7 @@ directamente desde acá.
 | `fuentes/numans/` | Numans Regular (.ttf) + licencia OFL |
 | `logos/` | 8 logos oficiales en SVG optimizado |
 | `patrones/` | Patrones de hexágonos oficiales en SVG, fondo transparente |
+| `logos-terceros/` | Logos de índices y empresas, nombrados por ticker (`indices/SPX.png`, `empresas/BBAR.png`) |
 
 Logos disponibles:
 
@@ -54,6 +55,11 @@ su `OFL.txt`.
 elementos de identidad de Insider Finance son propiedad de Insider Finance SA.
 Todos los derechos reservados. Su publicación en este repositorio **no** otorga
 licencia de uso a terceros.
+
+**Logos de terceros.** Los logos de `logos-terceros/` son marcas de sus respectivos
+titulares. Se incluyen solo para identificar instrumentos en piezas informativas de
+mercado. No son propiedad de Insider Finance y este repositorio no otorga ningún
+derecho sobre ellos.
 
 ## Reglas del repositorio
 
