@@ -25,8 +25,10 @@ Logos disponibles:
 
 Patrones disponibles:
 
-- `hexagonos-patron-vertical.svg`: bloque de hexágonos entero, 1080x1350, para posteos e historias
+- `hexagonos-patron-vertical.svg`: bloque de hexágonos entero, 1080x1350, solo si se pide un fondo de hexágonos destacado
 - `hexagonos-esquinas-16x9.svg`: hexágonos en esquinas, 1920x1080, para presentaciones
+- `hexagonos-esquina-sup-der.svg`: grupo de esquina superior derecha, para cualquier formato
+- `hexagonos-esquina-inf-izq.svg`: grupo de esquina inferior izquierda, para cualquier formato
 
 ## Uso desde los agentes
 
