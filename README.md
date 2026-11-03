@@ -13,6 +13,7 @@ directamente desde acá.
 | `fuentes/insider-sans/` | Insider Sans Expanded, todos los pesos (.ttf) + licencia OFL |
 | `fuentes/numans/` | Numans Regular (.ttf) + licencia OFL |
 | `logos/` | 8 logos oficiales en SVG optimizado |
+| `patrones/` | Patrones de hexágonos oficiales en SVG, fondo transparente |
 
 Logos disponibles:
 
@@ -21,6 +22,11 @@ Logos disponibles:
 - `isotipo-color.svg`: solo el símbolo, fondo claro
 - `logo-vertical-blanco.svg`, `logo-horizontal-blanco.svg`, `isotipo-blanco.svg`: fondos Coral, oscuros o fotos
 - `logo-vertical-negro.svg`, `isotipo-negro.svg`: monocromático (patrocinadores, impresión a una tinta)
+
+Patrones disponibles:
+
+- `hexagonos-patron-vertical.svg`: bloque de hexágonos entero, 1080x1350, para posteos e historias
+- `hexagonos-esquinas-16x9.svg`: hexágonos en esquinas, 1920x1080, para presentaciones
 
 ## Uso desde los agentes
 
@@ -42,10 +48,10 @@ su `OFL.txt`.
   Reserved Font Name de la OFL.
 - *Numans*: ver `fuentes/numans/OFL.txt`.
 
-**Logos y elementos de marca.** El nombre, logotipo, isotipo y elementos de
-identidad de Insider Finance son propiedad de Insider Finance SA. Todos los
-derechos reservados. Su publicación en este repositorio **no** otorga licencia
-de uso a terceros.
+**Logos, patrones y elementos de marca.** El nombre, logotipo, isotipo, patrones y
+elementos de identidad de Insider Finance son propiedad de Insider Finance SA.
+Todos los derechos reservados. Su publicación en este repositorio **no** otorga
+licencia de uso a terceros.
 
 ## Reglas del repositorio
 
