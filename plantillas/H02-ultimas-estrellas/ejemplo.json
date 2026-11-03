@@ -1,0 +1,13 @@
+{
+  "fecha_valores": "30/10/2026",
+  "acciones": [
+    {"nombre": "ALUA", "precio": "$847,50",  "variacion": "1,3%", "tendencia": "sube"},
+    {"nombre": "BBAR", "precio": "$6.470",   "variacion": "1,3%", "tendencia": "sube"},
+    {"nombre": "TGSU2", "precio": "$110.190", "variacion": "2,2%", "tendencia": "sube"}
+  ],
+  "cedears": [
+    {"nombre": "SAP",  "precio": "$32,65", "variacion": "798,4%", "tendencia": "sube"},
+    {"nombre": "NOK",  "precio": "$76,06", "variacion": "342,2%", "tendencia": "sube"},
+    {"nombre": "RTX",  "precio": "$37,00", "variacion": "137,8%", "tendencia": "sube"}
+  ]
+}

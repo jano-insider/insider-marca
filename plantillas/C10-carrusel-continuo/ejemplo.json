@@ -1,0 +1,10 @@
+{
+  "tema": "¿Gastas más de lo que quisieras?",
+  "laminas": [
+    {"tipo": "portada", "fondo": "blanco", "titulo": "¿Gastas **más** de lo que quisieras?"},
+    {"tipo": "contenido", "fondo": "coral", "titulo": "¿Cuáles son los gastos que te hacen perder capacidad de ahorro?"},
+    {"tipo": "contenido", "fondo": "blanco", "antes": "Empezá a vivir por debajo de tus posibilidades,", "titulo": "**No importa** la presión social.", "alineacion": "centro"},
+    {"tipo": "contenido", "fondo": "coral", "titulo": "Ese es el mejor camino para tener tu saldo positivo", "despues": "y poder empezar a invertir.", "alineacion": "derecha"},
+    {"tipo": "cierre", "fondo": "blanco", "titulo": "¿Querés **saber más?**", "llamado": "Escribínos", "texto": "Somos tu asesor financiero."}
+  ]
+}

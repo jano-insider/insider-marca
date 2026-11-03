@@ -1,0 +1,8 @@
+{
+  "titulo_1": "AVISO",
+  "titulo_2": "FINANCIERO",
+  "intro": "Hoy pagan estos instrumentos:",
+  "instrumentos": ["S30O6", "AO27", "AO28", "AO29"],
+  "pregunta": "Si invertiste en alguno de estos, ¿ya sabés cómo vas a rebalancear ese capital?",
+  "cierre": "Hablá con tu asesor"
+}

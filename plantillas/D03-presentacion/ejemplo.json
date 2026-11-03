@@ -1,0 +1,18 @@
+{"diapositivas": [
+ {"tipo": "portada", "frase": "Sé protagonista de tus finanzas"},
+ {"tipo": "texto", "titulo": "¿Quiénes somos?", "parrafos": [
+   "Insider Finance es un Agente Productor Jurídico **[Mat 1581]** habilitado por la Comisión Nacional de Valores para brindar Asesoría Financiera a Personas Físicas y Jurídicas. Actuamos como un intermediario registrado, facilitando la conexión entre el Agente de Bolsa y el inversor, siempre bajo la supervisión y regulación de las instituciones correspondientes.",
+   "Contamos con un equipo altamente experimentado en inversiones del Mercado de Capitales, con **más de 10 años de conocimientos y trayectoria.** Trabajamos en estrecha colaboración con las instituciones líderes del mercado, lo que respalda nuestra operativa y garantiza la seguridad y eficacia en todas nuestras acciones."]},
+ {"tipo": "indice", "titulo": "Nuestra propuesta de **valor**", "items": ["Asesoramiento en Mercado Local e Internacional", "Capacitaciones In Company", "Consultoría Financiera a Empresas", "Área de M&A"]},
+ {"tipo": "tarjetas", "titulo": "Nuestra propuesta de valor", "subtitulo": "1.  Asesoramiento Personalizado - Empresas", "tarjetas": [
+   "Acompañamos y asesoramos en estrategias de financiamiento personalizadas, en base a la situación financiera particular de cada empresa y diseñamos planes a medida.",
+   "Planteamos alternativas para optimizar la estructura de capital en base a horizontes y objetivos de inversión determinados.",
+   "Contamos con una propuesta de inversión integral tanto a nivel local como internacional, adaptada a diferentes perfiles y necesidades.",
+   "Brindamos oportunidades de inversión en sectores clave, y estrategias para la gestión de riesgos."]},
+ {"tipo": "pildoras", "titulo": "Nuestra propuesta de valor", "subtitulo": "3.  Consultoría Financiera", "texto": "Realizamos un análisis exhaustivo de la situación financiera, lo que nos permite desarrollar una estrategia integral para mejorar su eficiencia y fortalecer a la compañía.", "intro": "Asesoramiento en operatorias con:", "pildoras": ["Instrumentos de cobertura devaluatoria", "Operaciones de E-cheque", "Flujos económicos internacionales", "Financiamiento para PyMES"]},
+ {"tipo": "lista", "titulo": "Nuestra propuesta de valor", "subtitulo": "4.  Área de M&A", "parrafos": [
+   "Las fusiones y adquisiciones (M&A) son una herramienta estratégica poderosa para el crecimiento y la expansión de las empresas.",
+   "Acompañamos en la planificación de la integración, gestión del cambio y comunicación interna. Además, realizamos un seguimiento del desempeño y la creación de valor.",
+   "Cada empresa, con su singular visión y conjunto de objetivos, requiere un enfoque financiero que se adapte a su realidad particular."]},
+ {"tipo": "contacto"}
+]}

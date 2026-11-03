@@ -1,0 +1,11 @@
+{
+  "fecha": "Lunes 02/11",
+  "hora": "18:05",
+  "seccion": "Dólares",
+  "filas": [
+    {"nombre": "OFICIAL", "valor": "1.566 ARS", "variacion": "0,32%", "tendencia": "sube"},
+    {"nombre": "MEP",     "valor": "1.565 ARS", "variacion": "0,50%", "tendencia": "baja"},
+    {"nombre": "CABLE",   "valor": "1.678 ARS", "variacion": "1,50%", "tendencia": "sube"},
+    {"nombre": "BLUE",    "valor": "1.565 ARS", "variacion": "0,00%", "tendencia": "igual"}
+  ]
+}

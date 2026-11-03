@@ -1,0 +1,237 @@
+{
+  "fecha": "Martes 27 de octubre de 2026 · cierre del viernes 23/10",
+  "diapositivas": [
+    {
+      "tipo": "datos",
+      "seccion": "I. Internacional — Petróleo, Fed e inteligencia artificial",
+      "titulo": "1. Afuera: petróleo arriba, IA en duda",
+      "bajada": "El Brent tocó su máximo desde mayo y el balance de Meta reavivó las dudas sobre cuánto gastan las tecnológicas en inteligencia artificial",
+      "indicadores": [
+        {
+          "etiqueta": "Brent · jueves 22/10",
+          "valor": "USD 113,2",
+          "detalle": "+4% en el día, máximo desde mayo. Sube más de 85% en el año"
+        },
+        {
+          "etiqueta": "Meta · semana",
+          "valor": "-8,8%",
+          "detalle": "Vende 26% más, pero sube su inversión en IA y gasta más de lo que genera"
+        },
+        {
+          "etiqueta": "Tesla · semana",
+          "valor": "+4,3%",
+          "detalle": "Recortó su inversión 2026 y el mercado lo premió"
+        }
+      ],
+      "grafico": {
+        "tipo": "barras_h",
+        "titulo": "Jueves 22/10: el balance de Meta arrastró a la IA (variación %)",
+        "categorias": [
+          "CoreWeave",
+          "SpaceX",
+          "Semiconductores",
+          "Meta",
+          "Tesla",
+          "Nasdaq",
+          "Dow Jones"
+        ],
+        "series": [
+          {
+            "nombre": "Variación del día",
+            "valores": [
+              -10.1,
+              -9.1,
+              -7.0,
+              -7.0,
+              -3.1,
+              -2.6,
+              0.0
+            ]
+          }
+        ]
+      },
+      "cadena": {
+        "titulo": "La cadena",
+        "puntos": [
+          "**Meta:** vende 26% más, pero gasta más de lo que genera y sube su inversión en IA.",
+          "**Tesla:** recortó su inversión y su acción subió en la semana.",
+          "**Contagio:** cayeron CoreWeave, SpaceX y los chips: el mercado castiga gastar sin retorno.",
+          "**Petróleo y Fed:** Brent en máximo desde mayo; la Fed, casi seguro, sin cambios el 28/10."
+        ]
+      },
+      "fuente": "AP y Yahoo Finance, cierre del jueves 22/10/2026.",
+      "notas": "Arrancamos por afuera. El petróleo volvió a subir..."
+    },
+    {
+      "tipo": "datos",
+      "seccion": "II. Local — Bonos, riesgo país y financiamiento 2027",
+      "titulo": "3. Bonos: el contagio llegó a la Argentina",
+      "bajada": "El riesgo país pasó de 584 a 648, máximo del año; con esas tasas, financiar 2027 con deuda nueva sale carísimo",
+      "indicadores": [
+        {
+          "etiqueta": "Riesgo país · viernes 16/10",
+          "valor": "648",
+          "detalle": "Seis subas seguidas desde 584. Bonos en dólares: -1,5% solo el viernes"
+        },
+        {
+          "etiqueta": "Vencimientos en dólares 2027",
+          "valor": "USD 24.900 M",
+          "detalle": "El plan cuenta con USD 5.000 M de deuda nueva"
+        }
+      ],
+      "grafico": {
+        "tipo": "curva",
+        "titulo": "Cuánto rinden los bonos en dólares según su vencimiento (TIR %)",
+        "decimales": 2,
+        "categorias": [
+          "2029",
+          "2030",
+          "2035",
+          "2038",
+          "2041",
+          "2046"
+        ],
+        "series": [
+          {
+            "nombre": "Globales (ley Nueva York)",
+            "valores": [
+              9.42,
+              10.01,
+              11.49,
+              11.18,
+              11.54,
+              11.22
+            ]
+          },
+          {
+            "nombre": "Bonares (ley argentina)",
+            "valores": [
+              12.26,
+              12.58,
+              12.55,
+              12.99,
+              12.53,
+              null
+            ]
+          }
+        ]
+      },
+      "cadena": {
+        "titulo": "La cadena",
+        "puntos": [
+          "**El contagio:** inflación de EE.UU. + caída tecnológica = riesgo país en 648.",
+          "**La curva:** prestar después de 2027 paga ~11,5%."
+        ]
+      },
+      "fuente": "TIR al cierre del jueves 15/10/2026."
+    },
+    {
+      "tipo": "estrategia",
+      "seccion": "III. Estrategia local — Qué hacer según el perfil",
+      "titulo": "Estrategia: cobrar intereses y esperar",
+      "indicadores": [
+        {
+          "etiqueta": "Merval en dólares · 2026",
+          "valor": "-12,6%",
+          "detalle": "Lateraliza entre USD 1.700 y 2.200"
+        }
+      ],
+      "grafico": {
+        "tipo": "barras_h",
+        "titulo": "Resultado a octubre de 2027 según el escenario (%)",
+        "categorias": [
+          "Merval a su máximo",
+          "AL41 con TIR 7,5%",
+          "GD30 con TIR 20%",
+          "GD46 con TIR 25%",
+          "Merval a su mínimo"
+        ],
+        "series": [
+          {
+            "nombre": "Resultado",
+            "valores": [
+              47.3,
+              39.1,
+              -3.2,
+              -31.2,
+              -44.5
+            ]
+          }
+        ]
+      },
+      "perfiles": [
+        {
+          "perfil": "CONSERVADOR",
+          "texto": "Rotar Bopreal 2027 (BPOD7 / BPOC7) a **AO27**: ya cotizan arriba de la par y el AO27 paga cupones mensuales. Sumar ONs de energía cortas."
+        },
+        {
+          "perfil": "MODERADO",
+          "texto": "ONs largas de energía (Pampa 2031, Vista 2033, TGS 2031) y **duales en pesos** para cruzar la elección cubiertos."
+        },
+        {
+          "perfil": "AGRESIVO",
+          "texto": "**Esperar:** no comprar en la primera caída por Brasil. Volver de a poco a Globales largos (GD35 o AL35)."
+        }
+      ],
+      "acciones": [
+        "**Rotar:** BPOD7 / BPOC7 → AO27: mismo plazo, más liquidez y cupones mensuales.",
+        "**Sumar:** ONs de energía y duales en pesos: tasa con cobertura.",
+        "**Esperar:** Globales largos y Merval: mejores precios después de Brasil."
+      ],
+      "fuente": "Elaboración propia con datos de mercado."
+    },
+    {
+      "tipo": "agenda",
+      "seccion": "IV. Agenda — Esta semana y principios de la próxima",
+      "titulo": "4. La semana: Fed, licitación y balances",
+      "bajada": "La Fed, la última licitación del mes, la confianza en el Gobierno y los balances de las grandes tecnológicas",
+      "eventos": [
+        {
+          "fecha": "Mar 27/10",
+          "titulo": "Balances: Coca-Cola y Visa",
+          "detalle": "Consumo masivo y pagos: cómo está gastando la gente.",
+          "ambito": "internacional"
+        },
+        {
+          "fecha": "Mié 28/10",
+          "titulo": "Decisión de la Fed",
+          "detalle": "~90% de chances de que no toque la tasa.",
+          "ambito": "internacional"
+        },
+        {
+          "fecha": "Mié 28/10",
+          "titulo": "Balances: Alphabet y Microsoft",
+          "detalle": "Después de Meta: ¿ya gasta en IA sin retorno?",
+          "ambito": "internacional"
+        },
+        {
+          "fecha": "Jue 29/10",
+          "titulo": "Balances: Amazon e Intel",
+          "ambito": "internacional"
+        },
+        {
+          "fecha": "Esta semana",
+          "titulo": "Licitación del Tesoro",
+          "detalle": "La última del mes, con el riesgo país en 700.",
+          "ambito": "argentina"
+        },
+        {
+          "fecha": "Esta semana",
+          "titulo": "Confianza en el Gobierno",
+          "detalle": "Sale el índice de octubre de la UTDT.",
+          "ambito": "argentina"
+        },
+        {
+          "fecha": "Vie 30/10",
+          "titulo": "Balances: Chevron y ExxonMobil",
+          "ambito": "internacional"
+        },
+        {
+          "fecha": "3 y 4/11",
+          "titulo": "Elecciones y deuda en EE.UU.",
+          "ambito": "internacional"
+        }
+      ]
+    }
+  ]
+}

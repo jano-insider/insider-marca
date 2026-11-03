@@ -1,0 +1,45 @@
+{
+  "fecha": "Miércoles 04/11",
+  "hora": "18:05",
+  "seccion": "Índices",
+  "filas": [
+    {
+      "nombre": "S&P 500",
+      "valor": "7.541 USD",
+      "variacion": "0,51%",
+      "tendencia": "baja",
+      "valor_anterior": "7.580 USD"
+    },
+    {
+      "nombre": "NASDAQ",
+      "valor": "27.989 USD",
+      "variacion": "1,39%",
+      "tendencia": "baja"
+    },
+    {
+      "nombre": "DOW JONES",
+      "valor": "51.983 USD",
+      "variacion": "0,41%",
+      "tendencia": "sube",
+      "valor_anterior": "51.770 USD"
+    },
+    {
+      "nombre": "MSCI",
+      "valor": "53,08 USD",
+      "variacion": "4,70%",
+      "tendencia": "baja"
+    },
+    {
+      "nombre": "MERVAL",
+      "valor": "1.932 USD",
+      "valor_anterior": "1.926 USD",
+      "variacion": "0,30%",
+      "tendencia": "sube"
+    }
+  ],
+  "riesgo_pais": {
+    "valor": "797",
+    "variacion": "1,27%",
+    "tendencia": "sube"
+  }
+}
