@@ -243,6 +243,7 @@ def armar(d, kit):
     css = f"""
     * {{ box-sizing:border-box; margin:0; padding:0; }}
     body {{ margin:0; background:#fff; font-family:'Numans'; }}
+    * {{ font-feature-settings:"calt" 0; }}   /* sin sustituciones de la fuente: "2X6" no se convierte en "2×6" */
     .pag {{ width:{W}px; height:{H}px; position:relative; overflow:hidden; page-break-after:always; }}
     .tira {{ position:absolute; top:0; width:{W*n}px; height:{H}px; }}
     .lam {{ position:absolute; top:0; width:{W}px; height:{H}px; }}

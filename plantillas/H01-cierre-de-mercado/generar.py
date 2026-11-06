@@ -176,6 +176,7 @@ def armar_svg(d, kit):
     t = lambda s: escape(str(s))
     partes = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{ANCHO}" height="{ALTO}" viewBox="0 0 {ANCHO} {ALTO}">',
+        '<style>text { font-feature-settings: "calt" 0; }</style>',
         '<!-- Insider Finance · Plantilla H01 Cierre de mercado -->',
         f'<rect width="{ANCHO}" height="{ALTO}" fill="{BLANCO}"/>',
         f'<rect x="0" y="0" width="{ANCHO}" height="213" fill="{CORAL}"/>',

@@ -92,6 +92,19 @@ def svg_kit(kit, archivo, clase=""):
     return svg.replace(raiz, nueva, 1)
 
 
+def sin_sustituciones(obj):
+    """Para PowerPoint y Word: mete un espacio pelo (U+200A, el más fino que existe) entre un número y una
+    X seguida de número ("T2X6" -> "T2\u200aX6"), para que la fuente no lo convierta en "2×6" y cambie
+    un ticker. Un separador invisible no alcanza: el motor de texto lo ignora. Los números quedan igual."""
+    if isinstance(obj, str):
+        return re.sub(r"(\d)([xX])(?=\d)", "\\1\u200a\\2", obj)
+    if isinstance(obj, list):
+        return [sin_sustituciones(x) for x in obj]
+    if isinstance(obj, dict):
+        return {k: sin_sustituciones(v) for k, v in obj.items()}
+    return obj
+
+
 def fondo_kit(kit, archivo, ancho, alto):
     """Fondo de la pieza sacado del original (PNG del kit), a página completa."""
     import base64
@@ -149,7 +162,10 @@ def pagina(ancho, alto, css, cuerpo, fondo=BLANCO):
 * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 html, body {{ width: {ancho}px; height: {alto}px; }}
 body {{ position: relative; overflow: hidden; background: {fondo};
-       font-family: 'Numans'; color: {VIOLETA}; -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+       font-family: 'Numans'; color: {VIOLETA}; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+       font-variant-ligatures: no-contextual; font-feature-settings: "calt" 0; }}
+/* sin sustituciones automáticas de la fuente: "T2X6" no puede convertirse en "T2×6" (cambiaría el ticker) */
+* {{ font-feature-settings: "calt" 0; }}
 .tit {{ font-family: 'Insider Sans Expanded'; font-weight: 700; }}
 .ita {{ font-family: 'Insider Sans Expanded'; font-weight: 700; font-style: italic; }}
 .res {{ font-family: 'Insider Sans Expanded'; font-weight: 700; }}

@@ -22,7 +22,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from comun import faltantes  # noqa: E402
+from comun import faltantes, sin_sustituciones  # noqa: E402
 
 from pptx import Presentation  # noqa: E402
 from pptx.dml.color import RGBColor  # noqa: E402
@@ -279,7 +279,7 @@ def main():
         sys.exit(1)
     salida = Path(a.salida); salida.mkdir(parents=True, exist_ok=True)
     pptx = salida / f"{a.nombre}.pptx"
-    armar(datos, a.kit, str(pptx))
+    armar(sin_sustituciones(datos), a.kit, str(pptx))   # "T2X6" no se convierte en "T2×6"
     rr = subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", str(salida), str(pptx)],
                         capture_output=True, text=True, timeout=240)
     if rr.returncode != 0 or not (salida / f"{a.nombre}.pdf").exists():

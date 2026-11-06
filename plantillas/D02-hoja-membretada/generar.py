@@ -22,7 +22,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from comun import Ficha, faltantes  # noqa: E402
+from comun import Ficha, faltantes, sin_sustituciones  # noqa: E402
 
 from docx import Document  # noqa: E402
 from docx.enum.table import WD_TABLE_ALIGNMENT  # noqa: E402
@@ -179,7 +179,7 @@ def main():
     salida = Path(a.salida)
     salida.mkdir(parents=True, exist_ok=True)
     docx_path = salida / f"{a.nombre}.docx"
-    armar(datos, a.kit, str(docx_path))
+    armar(sin_sustituciones(datos), a.kit, str(docx_path))   # "T2X6" no se convierte en "T2×6"
     r = subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", str(salida), str(docx_path)],
                        capture_output=True, text=True, timeout=180)
     if r.returncode != 0 or not (salida / f"{a.nombre}.pdf").exists():

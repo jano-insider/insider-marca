@@ -18,10 +18,14 @@ def validar(d):
     return f.errores
 
 def armar(d, kit):
+    # Hasta 6 tickers, la medida del original. Con más (fechas de pago de globales y bonares),
+    # la letra de la banda y el aire entre bloques se achican en escalones para que entren hasta 12.
+    n = len(d["instrumentos"])
+    tam, gap, pad = (74, 60, 48) if n <= 6 else (62, 44, 36) if n <= 9 else (54, 34, 30)
     css = f"""
     .marco > * {{ flex-shrink:0; }}
     .marco {{ position:absolute; left:0; right:0; top:260px; bottom:260px;
-             display:flex; flex-direction:column; justify-content:center; overflow:hidden; gap:60px; }}
+             display:flex; flex-direction:column; justify-content:center; overflow:hidden; gap:{gap}px; }}
     .titulo {{ font-size:92px; line-height:1.02; text-transform:uppercase; text-align:center; }}
     .titulo .l1 {{ color:{VIOLETA}; white-space:nowrap; }}
     .titulo .l2 {{ color:{CORAL}; position:relative; display:inline-block; }}
@@ -29,12 +33,13 @@ def armar(d, kit):
     .titulo .l2::after  {{ content:''; position:absolute; left:-36px; top:calc(50% - 8px); width:20px; height:20px; border-radius:50%; background:{VIOLETA}; }}
     .alerta {{ display:inline-block; width:66px; height:56px; margin-left:14px; vertical-align:top; }}
     .intro {{ color:#1F1F1F; font-size:58px; text-align:center; padding:0 90px; line-height:1.2; }}
-    .banda {{ background:{CORAL}; color:{BLANCO}; font-size:74px; text-align:center; padding:48px 70px; line-height:1.35; max-height:520px; overflow:hidden; }}
+    .banda {{ background:{CORAL}; color:{BLANCO}; font-size:{tam}px; text-align:center; padding:{pad}px 60px; line-height:1.3; max-height:640px; overflow:hidden; }}
     .pregunta {{ color:#1F1F1F; font-size:48px; text-align:center; padding:0 110px; line-height:1.25; }}
     .cierre {{ color:{CORAL}; font-size:88px; text-align:center; text-transform:uppercase; line-height:1.05; padding:0 90px; }}
     """
     alerta = f'<span class="alerta">{svg_kit(kit, "alerta.svg")}</span>'
-    instr = " - ".join(t(x) for x in d["instrumentos"])
+    # el guion queda pegado al ticker anterior (espacio duro): nunca empieza un renglón con "-"
+    instr = "&nbsp;- ".join(t(x) for x in d["instrumentos"])
     preg = f'<div class="pregunta">{t(d["pregunta"])}</div>' if d.get("pregunta") else ""
     cuerpo = f"""{banda(kit, "hexagonos-banda-1.svg", -21, -769, 1101, 1048, 0.555)}
     <div class="marco ajusta" data-campo="contenido completo">
