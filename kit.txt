@@ -139,3 +139,10 @@ plantillas/S05-tips/generar.py
 plantillas/S05-tips/ejemplo.json
 plantillas/Y01-miniatura-youtube/generar.py
 plantillas/Y01-miniatura-youtube/ejemplo.json
+fondos/diario-clasica.png
+fondos/diario-compacta.png
+fondos/diario-coral.png
+fondos/diario-titular.png
+iconos/noticias-celular.svg
+plantillas/N02-nota-en-diario/generar.py
+plantillas/N02-nota-en-diario/ejemplo.json
