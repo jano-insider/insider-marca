@@ -40,7 +40,7 @@ SECCIONES = {"Dólares", "Índices"}
 # Índices fijos y su logo (logos-terceros/indices/<clave>.png). Sin logo, se escribe el nombre.
 INDICES = {"S&P 500": "SPX", "NASDAQ": "NASDAQ", "DOW JONES": "DJI", "MSCI": "MSCI", "MERVAL": "MERVAL"}
 # Versión Índices: siempre estos cuatro, en este orden (definido por marketing). Solo cambian los valores.
-ORDEN_INDICES = ["S&P 500", "NASDAQ", "DOW JONES", "MSCI", "MERVAL"]   # marketing: el Merval va siempre con los índices
+ORDEN_INDICES = ["S&P 500", "NASDAQ", "DOW JONES", "MSCI"]   # marketing (06/11): 4 filas fijas; la fila MSCI lleva el dato de Rava "MERVAL USD"
 ORDEN_DOLARES = ["OFICIAL", "MEP", "CABLE", "BLUE"]
 TOLERANCIA = 0.05   # puntos porcentuales de diferencia admitidos al recalcular la variación
 

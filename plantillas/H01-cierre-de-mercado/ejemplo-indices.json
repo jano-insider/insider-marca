@@ -28,13 +28,6 @@
       "valor": "53,08 USD",
       "variacion": "4,70%",
       "tendencia": "baja"
-    },
-    {
-      "nombre": "MERVAL",
-      "valor": "1.932 USD",
-      "valor_anterior": "1.926 USD",
-      "variacion": "0,30%",
-      "tendencia": "sube"
     }
   ],
   "riesgo_pais": {
