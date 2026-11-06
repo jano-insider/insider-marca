@@ -267,6 +267,32 @@ def armar(d, kit):
     return f'<!DOCTYPE html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{paginas}</body></html>'
 
 
+JS_AJUSTAR = """
+() => {
+  // Si el texto de una lámina no entra, se achica toda la letra de esa lámina en pasos de 4%,
+  // hasta un mínimo del 62% (sigue siendo legible en Instagram). Se aplica igual en todas las copias.
+  for (const caja of document.querySelectorAll('.ajusta')) {
+    const conTexto = [...caja.querySelectorAll('*')].filter(e =>
+      [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()));
+    const base = conTexto.map(e => parseFloat(getComputedStyle(e).fontSize));
+    let f = 1;
+    while ((caja.scrollHeight > caja.clientHeight + 6 || caja.scrollWidth > caja.clientWidth + 2) && f > 0.62) {
+      f -= 0.04;
+      conTexto.forEach((e, i) => { e.style.fontSize = (base[i] * f) + 'px'; });
+    }
+  }
+}
+"""
+
+
+def detalle_lamina(l):
+    """Qué campos tiene la lámina y cuál es el más largo, para que el error diga qué acortar."""
+    campos = [(c, len(str(l[c]).replace("**", ""))) for c in ("titulo", "antes", "texto", "despues", "llamado") if l.get(c)]
+    largo = max(campos, key=lambda x: x[1])[0] if campos else "titulo"
+    lista = ", ".join(f"{c} {n} caracteres" for c, n in campos)
+    return f"tiene {lista}. Acortá primero '{largo}'"
+
+
 JS_DESBORDE = """
 () => [...document.querySelectorAll('.pag:first-child .ajusta')]
       .filter(el => el.scrollHeight > el.clientHeight + 6 || el.scrollWidth > el.clientWidth + 2)
@@ -296,9 +322,13 @@ def main():
             pag = nav.new_page(viewport={"width": W, "height": H})
             pag.set_content(html_txt); pag.evaluate("document.fonts.ready"); pag.wait_for_timeout(300)
             pag.evaluate(JS_ENCOGER)
+            pag.evaluate(JS_AJUSTAR)
             malos = pag.evaluate(JS_DESBORDE)
             if malos:
-                errores = [f"El texto de la {m} no entra en su espacio. Acortalo." for m in malos]
+                errores = []
+                for m in malos:
+                    k = int(m.split()[-1]) - 1
+                    errores.append(f"La {m} no entra ni achicando la letra: {detalle_lamina(datos['laminas'][k])}.")
             else:
                 for k in range(n):
                     pag.screenshot(path=str(salida / f"{a.nombre}-{k+1:02d}.png"),
