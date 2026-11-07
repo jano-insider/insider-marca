@@ -38,9 +38,9 @@ RE_RIESGO = re.compile(r"^\d{1,3}(\.\d{3})*$")
 TENDENCIAS = {"sube", "baja", "igual"}
 SECCIONES = {"Dólares", "Índices"}
 # Índices fijos y su logo (logos-terceros/indices/<clave>.png). Sin logo, se escribe el nombre.
-INDICES = {"S&P 500": "SPX", "NASDAQ": "NASDAQ", "DOW JONES": "DJI", "MSCI": "MSCI", "MERVAL": "MERVAL"}
+INDICES = {"S&P 500": "SPX", "NASDAQ": "NASDAQ", "DOW JONES": "DJI", "MSCI": "MSCI"}
 # Versión Índices: siempre estos cuatro, en este orden (definido por marketing). Solo cambian los valores.
-ORDEN_INDICES = ["S&P 500", "NASDAQ", "DOW JONES", "MSCI"]   # marketing (06/11): 4 filas fijas; la fila MSCI lleva el dato de Rava "MERVAL USD"
+ORDEN_INDICES = ["S&P 500", "NASDAQ", "DOW JONES", "MSCI"]   # marketing (06/11): 4 filas fijas
 ORDEN_DOLARES = ["OFICIAL", "MEP", "CABLE", "BLUE"]
 TOLERANCIA = 0.05   # puntos porcentuales de diferencia admitidos al recalcular la variación
 
@@ -190,7 +190,7 @@ def armar_svg(d, kit):
         f'<rect x="409" y="690" width="262" height="4" rx="2" fill="{CORAL}"/>',
     ]
     n = len(d["filas"])
-    paso = 128 if n <= 4 else 108            # con el Merval son 5 filas: se compactan para que entre todo
+    paso = 128 if n <= 4 else 108            # más de 4 filas: se compactan para que entre todo
     y = 884
     for i, f in enumerate(d["filas"]):
         logo = logo_tercero("indices", INDICES[f["nombre"]], kit) if d["seccion"] == "Índices" else None

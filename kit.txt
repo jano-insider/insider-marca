@@ -80,7 +80,6 @@ logos-terceros/indices/SPX.png
 logos-terceros/indices/NASDAQ.png
 logos-terceros/indices/DJI.png
 logos-terceros/indices/MSCI.png
-logos-terceros/indices/MERVAL.png
 logos-terceros/empresas/BBAR.png
 logos-terceros/empresas/NOK.png
 logos-terceros/empresas/RTX.png

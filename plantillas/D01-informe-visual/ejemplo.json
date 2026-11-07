@@ -131,7 +131,7 @@
       "titulo": "Estrategia: cobrar intereses y esperar",
       "indicadores": [
         {
-          "etiqueta": "Merval en dólares · 2026",
+          "etiqueta": "Acciones argentinas en dólares · 2026",
           "valor": "-12,6%",
           "detalle": "Lateraliza entre USD 1.700 y 2.200"
         }
@@ -140,11 +140,11 @@
         "tipo": "barras_h",
         "titulo": "Resultado a octubre de 2027 según el escenario (%)",
         "categorias": [
-          "Merval a su máximo",
+          "Acciones a su máximo",
           "AL41 con TIR 7,5%",
           "GD30 con TIR 20%",
           "GD46 con TIR 25%",
-          "Merval a su mínimo"
+          "Acciones a su mínimo"
         ],
         "series": [
           {
@@ -176,7 +176,7 @@
       "acciones": [
         "**Rotar:** BPOD7 / BPOC7 → AO27: mismo plazo, más liquidez y cupones mensuales.",
         "**Sumar:** ONs de energía y duales en pesos: tasa con cobertura.",
-        "**Esperar:** Globales largos y Merval: mejores precios después de Brasil."
+        "**Esperar:** Globales largos y acciones argentinas: mejores precios después de Brasil."
       ],
       "fuente": "Elaboración propia con datos de mercado."
     },
