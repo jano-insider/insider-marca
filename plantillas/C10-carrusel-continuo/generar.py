@@ -169,7 +169,11 @@ def lamina(k, l, d, kit, uniones):
         logo = "logo-horizontal-blanco.svg" if coral else "logo-horizontal-color.svg"
         partes.append(f'<div class="abs" style="left:{80 + ol}px;top:80px;width:240px;height:72px">{svg_kit(kit, logo)}</div>')
         marca = BLANCO if (coral or uniones.get("der", "").startswith("banda")) else CORAL
-        partes.append(f'<svg class="abs" style="left:{933 if not orr or uniones.get("der") == "banda" else 933 - orr}px;top:88px;width:68px;height:78px" viewBox="0 0 68 78">'
+        mx = 933 if not orr or uniones.get("der") == "banda" else 933 - orr
+        # portada coral con el corte blanco arriba a la derecha: el marcador se corre a la izquierda del corte
+        if coral and uniones.get("der", "").endswith("arriba"):
+            mx = W - CH_ARRIBA[0] - 68 - 40
+        partes.append(f'<svg class="abs" style="left:{mx}px;top:88px;width:68px;height:78px" viewBox="0 0 68 78">'
                       f'<path d="M2 2 H66 V76 L34 56 L2 76 Z" fill="{marca}"/></svg>')
         partes.append(f'<div class="txt ajusta" data-campo="lámina {k+1}" style="left:{69 + ol}px;right:{360 if uniones.get("der","").startswith("banda") else 90}px;'
                       f'top:560px;height:620px;justify-content:flex-end">'
