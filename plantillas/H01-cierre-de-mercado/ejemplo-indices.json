@@ -5,23 +5,23 @@
   "filas": [
     {
       "nombre": "S&P 500",
-      "valor": "7.541 USD",
+      "valor": "7.541",
       "variacion": "0,51%",
       "tendencia": "baja",
-      "valor_anterior": "7.580 USD"
+      "valor_anterior": "7.580"
     },
     {
       "nombre": "NASDAQ",
-      "valor": "27.989 USD",
+      "valor": "27.989",
       "variacion": "1,39%",
       "tendencia": "baja"
     },
     {
       "nombre": "DOW JONES",
-      "valor": "51.983 USD",
+      "valor": "51.983",
       "variacion": "0,41%",
       "tendencia": "sube",
-      "valor_anterior": "51.770 USD"
+      "valor_anterior": "51.770"
     },
     {
       "nombre": "MSCI",

@@ -34,6 +34,9 @@ RE_HORA = re.compile(r"^\d{2}:\d{2}$")
 RE_NOMBRE = re.compile(r"^[A-ZÁÉÍÓÚÑ0-9&.\- ]{1,14}$")
 RE_VALOR = re.compile(r"^\d{1,3}(\.\d{3})*(,\d{1,2})?( ARS| USD)?$")
 RE_VARIACION = re.compile(r"^\d{1,3}(\.\d{3})*,\d{2}%$")
+# Índices: S&P 500, NASDAQ y DOW JONES van en puntos, sin unidad; MSCI va en dólares (marketing, 07/11)
+RE_PUNTOS = re.compile(r"^\d{1,3}(\.\d{3})*(,\d{1,2})?$")
+RE_DOLARES = re.compile(r"^\d{1,3}(\.\d{3})*(,\d{1,2})? USD$")
 RE_RIESGO = re.compile(r"^\d{1,3}(\.\d{3})*$")
 TENDENCIAS = {"sube", "baja", "igual"}
 SECCIONES = {"Dólares", "Índices"}
@@ -85,7 +88,9 @@ def validar(d):
         if "nombre" in claves and not RE_NOMBRE.match(str(f.get("nombre", ""))):
             e.append(f"{donde}.nombre: mayúsculas, hasta 14 caracteres (ej. 'OFICIAL', 'S&P 500').")
         if not re_valor.match(str(f.get("valor", ""))):
-            e.append(f"{donde}.valor: formato inválido ('{f.get('valor')}').")
+            pista = {id(RE_PUNTOS): " Va en puntos, sin unidad (ej. '7.353,73').",
+                     id(RE_DOLARES): " Va en dólares (ej. '50,09 USD')."}.get(id(re_valor), "")
+            e.append(f"{donde}.valor: formato inválido ('{f.get('valor')}').{pista}")
         var = str(f.get("variacion", ""))
         if not RE_VARIACION.match(var):
             e.append(f"{donde}.variacion: formato 'n,nn%' sin signo (ej. '0,32%').")
@@ -126,7 +131,10 @@ def validar(d):
         e.append("filas: entre 1 y 5 filas.")
     else:
         for i, f in enumerate(filas, 1):
-            fila_ok(f, f"filas[{i}]", RE_VALOR)
+            patron = RE_VALOR
+            if d.get("seccion") == "Índices" and isinstance(f, dict):
+                patron = RE_DOLARES if f.get("nombre") == "MSCI" else RE_PUNTOS
+            fila_ok(f, f"filas[{i}]", patron)
     if d.get("seccion") == "Índices":
         if "riesgo_pais" not in d:
             e.append("riesgo_pais: es obligatorio en la versión Índices.")
