@@ -145,3 +145,12 @@ fondos/diario-titular.png
 iconos/noticias-celular.svg
 plantillas/N02-nota-en-diario/generar.py
 plantillas/N02-nota-en-diario/ejemplo.json
+logos-agrofinance/agro-isotipo-color.png
+logos-agrofinance/agro-logo-horizontal-blanco.png
+logos-agrofinance/agro-logo-horizontal-color.png
+logos-agrofinance/agro-logo-horizontal-coral.png
+logos-agrofinance/agro-logo-horizontal-negro.png
+logos-agrofinance/agro-logo-vertical-blanco.png
+logos-agrofinance/agro-logo-vertical-color.png
+logos-agrofinance/agro-logo-vertical-coral.png
+logos-agrofinance/agro-logo-vertical-negro.png
