@@ -73,9 +73,6 @@ def armar(d, kit):
         ley = f'<div class="ley">{leyenda}</div>' if leyenda else ""
         return f'<div class="pie" style="color:{color}">{ley}<div>{PIE}</div></div>'
 
-    def nro(k, color):
-        return f'<div class="nro" style="color:{color}">{k}/{n}</div>'
-
     def fondo_foto(filtro):
         return (f'<img class="abs" src="{foto}" style="left:0;top:0;width:{W}px;height:{H}px;object-fit:cover">'
                 f'<div class="abs" style="left:0;top:0;width:{W}px;height:{H}px;background:{filtro}"></div>')
@@ -101,7 +98,7 @@ def armar(d, kit):
       <div class="txt ajusta" data-campo="lámina {k}" style="left:90px;top:300px;width:900px;height:820px;justify-content:center;gap:44px">
         <div class="tit encoge" style="font-size:66px;line-height:1.12;color:{VIOLETA}">{t(x["titulo"])}</div>
         <div style="font-size:38px;line-height:1.4;color:{GRIS}">{t(x["texto"])}</div></div>
-      {nro(k, VIOLETA)}{pie(VIOLETA)}</div>''')
+      {pie(VIOLETA)}</div>''')
     # cierre: la misma foto con filtro blanco
     pags.append(f'''<div class="pag">{fondo_foto(FILTRO_BLANCO)}
       <div class="abs esq">{hexa}</div>
@@ -110,7 +107,7 @@ def armar(d, kit):
         <div class="tit encoge" style="font-size:74px;line-height:1.12;color:{VIOLETA}">{t(d["cierre"]["titulo"])}</div>
         <div class="llam tit">{LLAMADO}</div></div>
       <div class="abs" style="left:90px;top:1030px;width:900px;text-align:center;font-size:28px;color:{VIOLETA}">www.insiderfinance.com.ar</div>
-      {nro(n, VIOLETA)}{pie(VIOLETA)}</div>''')
+      {pie(VIOLETA)}</div>''')
     css = f"""
     * {{ box-sizing:border-box; margin:0; padding:0; font-feature-settings:"calt" 0; }}
     body {{ margin:0; background:#fff; font-family:'Numans'; }}
@@ -123,12 +120,11 @@ def armar(d, kit):
     .txt > * {{ flex-shrink:0; }}
     .esq {{ right:0; top:0; width:560px; height:140px; }}
     .desl {{ position:absolute; border:3px solid {BLANCO}; border-radius:37px; height:74px; padding:0 40px; display:flex; align-items:center; font-size:30px; color:{BLANCO}; }}
-    .llam {{ background:{CORAL}; color:{BLANCO}; border-radius:44px; padding:22px 48px; font-size:38px; }}
-    .nro {{ position:absolute; right:90px; top:1160px; font-size:28px; }}
+    .llam {{ background:{CORAL}; color:{BLANCO}; border-radius:44px; padding:22px 44px; font-size:32px; white-space:nowrap; }}
     .pie {{ position:absolute; left:90px; right:90px; bottom:70px; font-size:24px; line-height:1.4; }}
     .ley {{ font-size:22px; opacity:0.9; }}
     div > svg {{ width:100%; height:100%; display:block; }}
-    .blanco svg {{ filter:brightness(0) invert(1); }}   /* hexágonos en blanco sobre la foto (pedido de marketing) */
+    .blanco svg {{ filter:brightness(0) invert(1); -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 45%); mask-image:linear-gradient(to right, transparent 0%, #000 45%); }}   /* hexágonos en blanco sobre la foto (pedido de marketing) */
     @page {{ size:{W}px {H}px; margin:0; }}
     """
     return f'<!DOCTYPE html><html><head><meta charset="utf-8"><style>{css}</style></head><body>{"".join(pags)}</body></html>', n

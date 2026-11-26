@@ -54,8 +54,8 @@ def armar(d, kit):
     .titulo .res {{ color:{VIOLETA}; }}
     .item {{ display:flex; align-items:center; gap:24px; margin-bottom:20px; font-size:40px; color:{BLANCO}; }}
     .item svg {{ width:48px; height:48px; flex-shrink:0; }}
-    .cta {{ align-self:flex-start; background:{BLANCO}; color:{CORAL}; border-radius:44px; padding:22px 46px; font-size:38px; }}
-    .blanco svg {{ filter:brightness(0) invert(1); }}   /* hexágonos en blanco sobre la foto (pedido de marketing) */
+    .cta {{ align-self:flex-start; background:{BLANCO}; color:{CORAL}; border-radius:44px; padding:22px 40px; font-size:32px; white-space:nowrap; }}
+    .blanco svg {{ filter:brightness(0) invert(1); -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 45%); mask-image:linear-gradient(to right, transparent 0%, #000 45%); }}   /* hexágonos en blanco sobre la foto (pedido de marketing) */
     .pie {{ position:absolute; left:100px; right:100px; top:1745px; font-size:26px; color:{BLANCO}; text-align:center; }}
     """
     tilde = (f'<svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="24" fill="{BLANCO}"/>'
