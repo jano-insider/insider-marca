@@ -9,17 +9,18 @@ Variantes:
   - "programa-audio": ícono de audio, NOTA coral, programa, descripción, entrevista y banda coral abajo.
   - "canal-video":    fondo degradado con el recuadro para el video, NOTA y el nombre del canal.
   - "canal-fotos":    NOTA y canal, con las fotos de Pablo y del invitado en tarjetas con sus nombres.
-Las fotos del invitado (--foto) las adjunta quien pide la pieza. En titular y tema, **así** va en violeta.
+  - "canal-captura":  NOTA y canal, con la captura o miniatura del video (16:9) sobre los hexágonos.
+Las fotos del invitado y la captura del video las adjunta quien pide la pieza. En titular y tema, **así** va en violeta.
 """
 import base64, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from comun import Ficha, t, pagina, ejecutar, CORAL, VIOLETA, BLANCO  # noqa: E402
 
-FONDO = {v: f"nota-{v}.png" for v in ("una-foto", "dos-fotos", "coral", "programa-video", "programa-audio", "canal-video", "canal-fotos")}
+FONDO = {v: f"nota-{v}.png" for v in ("una-foto", "dos-fotos", "coral", "programa-video", "programa-audio", "canal-video", "canal-fotos", "canal-captura")}
 NECESITA_FOTO = {"dos-fotos", "canal-fotos"}
 CAMPOS = {"variante", "titulo", "invitado", "tema", "entrevista", "medio", "color_medio", "titular", "bajada",
-          "programa", "descripcion", "canal", "nombre_pablo", "nombre_invitado", "foto", "foto_pablo"}
+          "programa", "descripcion", "canal", "nombre_pablo", "nombre_invitado", "foto", "foto_pablo", "captura"}
 NEGRO = "#1D1D1B"
 
 def es_imagen(ruta):
@@ -42,8 +43,11 @@ def validar(d):
         f.texto("titular", 90); f.texto("bajada", 50, obligatorio=False)
     if v in ("programa-video", "programa-audio"):
         f.texto("programa", 24); f.texto("descripcion", 150); f.texto("entrevista", 40, obligatorio=False)
-    if v in ("canal-video", "canal-fotos"):
-        f.texto("canal", 18, ayuda="Ej. 'CANAL E'.")
+    if v in ("canal-video", "canal-fotos", "canal-captura"):
+        f.texto("canal", 18, ayuda="Ej. 'CANAL E' o 'AHORA PLAY'.")
+    if v == "canal-captura":
+        if not es_imagen(d.get("captura")):
+            f.errores.append("captura: ruta a la captura o miniatura del video (PNG o JPG, 16:9) que adjuntó quien pide la pieza.")
     if v == "canal-fotos":
         f.texto("nombre_pablo", 24, obligatorio=False); f.texto("nombre_invitado", 24)
     if v in NECESITA_FOTO and not es_imagen(d.get("foto")):
@@ -107,16 +111,19 @@ def armar(d, kit):
                   ).replace('class="abs"', 'class="abs ajusta" data-campo="descripcion"', 1)
         if d.get("entrevista"):
             c += caja(400, 2048 if video else 1472, 645, 202, f'<div style="font-size:57px;line-height:1.15;color:{NEGRO};text-transform:uppercase;max-width:480px">{t(d["entrevista"])}</div>')
-    if v in ("canal-video", "canal-fotos"):
+    if v in ("canal-video", "canal-fotos", "canal-captura"):
         color = BLANCO if v == "canal-video" else VIOLETA
+        color_canal = "#020203" if v == "canal-captura" else color   # canal-captura: el canal en negro, como el modelo de Canva
         c += caja(200, 405, 1040, 400,
                   f'<div class="tit" style="font-size:215px;line-height:1;color:{color}">NOTA</div>'
-                  f'<div style="font-size:67px;color:{color};margin-top:24px;text-transform:uppercase">{t(d["canal"])}</div>', "justify-content:flex-start")
+                  f'<div style="font-size:67px;color:{color_canal};margin-top:24px;text-transform:uppercase">{t(d["canal"])}</div>', "justify-content:flex-start")
     if v == "canal-fotos":
         for (x, y, w, h), src in (((122, 990, 588, 629), uri(d["foto_pablo"])), ((717, 980, 601, 639), uri(d["foto"]))):
             c += f'<img class="abs" src="{src}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px;object-fit:cover;object-position:50% 20%">'
         c += caja(200, 1690, 440, 240, f'<div style="font-size:67px;line-height:1.1;color:#020203;text-transform:uppercase">{t(d.get("nombre_pablo", "PABLO LAZZATI"))}</div>')
         c += caja(800, 1690, 440, 240, f'<div style="font-size:67px;line-height:1.1;color:#020203;text-transform:uppercase">{t(d["nombre_invitado"])}</div>')
+    if v == "canal-captura":   # modelo de Canva de marketing (25/11/2026): la captura va donde estaban las tarjetas
+        c += f'<img class="abs" src="{uri(d["captura"])}" style="left:47px;top:1098px;width:1325px;height:783px;object-fit:cover">'
     return pagina(1440, 2560, ".res { color:%s; }" % VIOLETA, c)
 
 if __name__ == "__main__":

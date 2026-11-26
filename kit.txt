@@ -154,3 +154,4 @@ logos-agrofinance/agro-logo-vertical-blanco.png
 logos-agrofinance/agro-logo-vertical-color.png
 logos-agrofinance/agro-logo-vertical-coral.png
 logos-agrofinance/agro-logo-vertical-negro.png
+fondos/nota-canal-captura.png
