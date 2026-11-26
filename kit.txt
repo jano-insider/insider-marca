@@ -155,3 +155,7 @@ logos-agrofinance/agro-logo-vertical-color.png
 logos-agrofinance/agro-logo-vertical-coral.png
 logos-agrofinance/agro-logo-vertical-negro.png
 fondos/nota-canal-captura.png
+plantillas/A01-agro-educativo/generar.py
+plantillas/A01-agro-educativo/ejemplo.json
+plantillas/A03-agro-anuncio/generar.py
+plantillas/A03-agro-anuncio/ejemplo.json
