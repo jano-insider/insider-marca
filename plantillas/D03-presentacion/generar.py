@@ -161,10 +161,14 @@ def hexagono(slide, cx, cy, ancho, color=CORAL, grosor=6):   # viñetas chicas (
 def d_portada(slide, s, r):
     slide.shapes.add_picture(r["esquinas"], 0, 0, width=px(1920))
     slide.shapes.add_picture(r["logo_grande"], px(470), px(250), width=px(980))
-    for y in (690, 790):
+    # Si la frase no entra en una línea, arma dos y la línea de abajo baja (antes quedaba tachada).
+    largo = sum(1.25 if ch.isupper() else 1 for ch in s["frase"])
+    dos = largo > 33
+    abajo, alto = (890, 180) if dos else (790, 80)
+    for y in (690, abajo):
         caja(slide, MSO_SHAPE.RECTANGLE, 431, y, 1108, 2, relleno=GRIS_FRASE)
-    texto(slide, 431, 700, 1108, 80, s["frase"], tam=48, color=GRIS_FRASE, alinear=PP_ALIGN.CENTER,
-          ancla=MSO_ANCHOR.MIDDLE, espaciado=260)
+    texto(slide, 431, 700, 1108, alto, s["frase"], tam=44 if dos else 48, color=GRIS_FRASE, alinear=PP_ALIGN.CENTER,
+          ancla=MSO_ANCHOR.MIDDLE, espaciado=260, interlineado=1.1)
 
 
 def d_texto(slide, s, r):
